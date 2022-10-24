@@ -164,7 +164,9 @@ Proses selanjutnya adalah mereset index dan menghapus kolom index yang ada. Pros
 
 Setelah itu, proses menghapus sample yang memiliki nilai book rating sebesar 0. Proses ini bertujuan untuk menghilangkan buku yang memiliki rating yang sangat buruk yakni 0. Pada proses ini juga dilakukan dengan menggunakan fungsi drop(). Selanjutnya adalah proses menghapus satu atau lebih karakter non-alfanumerik dalam kolom Book-Title. Proses ini dilakukan untuk memudahkan proses transformasi ke dalam bentuk matriks yang nantinya akan dilakukan.
 
-## Modeling
+## Modeling & Result
+
+### Modeling
 
 Setelah melakukan tahap business understanding, data understanding, dan data preparation, maka langkah selanjutnya adalah modeling atau model development. Pada tahap ini akan dilakukan proses mengembangkan sistem rekomendasi buku dengan pendekatan content based filtering. Metode ini memiliki beberapa kelebihan yaitu sebagai berikut.
 
@@ -188,7 +190,7 @@ Proses selanjutnya yaitu menghapus data duplicate dalam kolom Book-Title pada ka
 
 Setelah itu, proses berikutnya adalah mengonversi teks pada kolom all_features menjadi matriks jumlah token. Kemudian dari matriks jumlah token tersebut dihitung derajat kesamaan cosinus. Selanjutnya membuat list bernomor dari buku-buku yang sama seperti judul buku yang dimasukkan sebaga parameter. Dari buku-buku yang sama tersebut diambil lima buah buku dimasukkan ke dalam sebuah list. Dari list tersebut akan ditampilkan dalam bentuk grafik. Pada grafik yang berisi buku-buku yang direkomendasikan, akan menampilkan gambar cover dari buku dan ratingnya.
 
-## ****Evaluation****
+### Result
 
 Setelah membuat fungsi yang dapat memberikan rekomendasi buku, maka selanjutnya adalah mencobanya. Percobaan pertama yang akan dilakukan adalah mendapatkan rekomendasi buku yang mirip dengan buku yang berjudul The Five People You Meet in Heaven. Hasil rekomendasi yang diberikan oleh sistem yaitu sebagai berikut.
 
@@ -219,3 +221,18 @@ Untuk percobaan kelima yaitu mendapatkan rekomendasi buku yang mirip dengan buku
 ![gambar 8](https://user-images.githubusercontent.com/89245500/197402181-da99cdc6-ec01-446e-ae02-3eb9f7acecae.png)
 
 Gambar 8. Hasil rekomendasi yang mirip dengan Life of Pi
+
+
+## Evaluation
+
+Setelah mencoba mendapatkan rekomendasi buku dari sistem yang telah dibuat, tahap selanjutnya adalah melakukan evaluasi dengan menghitung precision. Dalam sistem rekomendasi, precision adalah jumlah item rekomendasi yang relevan. Rumus dari precision dalam sistem rekomendasi yaitu didefinisikan dalam persamaan berikut.
+
+$$Precision = \frac{oetar}{oiwr}\times100\%$$
+
+***Keterangan:***
+
+*oetar = of recommendation that are relevant (jumlah buku yang relevan)*
+
+*oiwr = of item we recommend (jumlah buku rekomendasi)*
+
+Pada proses result, didapatkan lima buah hasil rekomendasi buku dari sistem. Dari lima buku hasil rekomendasi ini akan dicari penerbit-penerbitnya. Nilai dari ******oetar****** didapat dari jumlah buku rekomendasi yang memiliki penerbit yang sama seperti buku yang dicari. Sedangkan nilai dari ****oiwr**** adalah jumlah buku rekomendasi. Nilai precision rekomendasi buku dari buku yang berjudul The Five People You Meet in Heaven yaitu sebesar 0%. Untuk buku yang berjudul Tuesdays with Morrie An Old Man a Young Man and Life s Greatest Lesson mendapatkan precision sebesar 20%. Selain itu, precision yang didapat dari buku yang berjudul Life of Pi adalah sebesar 20%.
